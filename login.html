@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Telebirr Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <img src="images/logo.png" alt="Telebirr" class="auth-logo" onerror="this.style.display='none'">
+                <h1>Telebirr Pro</h1>
+                <p>Smart Mobile Payment</p>
+            </div>
+            
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login" onclick="switchTab('login')">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button class="tab-btn" data-tab="register" onclick="switchTab('register')">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" action="login.php" method="POST" class="auth-form" onsubmit="return validateLogin()">
+                <input type="hidden" name="action" value="login">
+                
+                <div class="form-group">
+                    <label for="login_phone">
+                        <i class="fas fa-phone"></i> Phone Number
+                    </label>
+                    <input type="tel" id="login_phone" name="phone" 
+                           placeholder="09xxxxxxxx" 
+                           pattern="09[0-9]{8}" 
+                           maxlength="10" 
+                           required>
+                    <div class="error-message" id="login_phone_error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login_pin">
+                        <i class="fas fa-lock"></i> PIN
+                    </label>
+                    <div class="pin-input-group">
+                        <input type="password" id="login_pin" name="pin" 
+                               placeholder="Enter your PIN" 
+                               maxlength="6" 
+                               pattern="[0-9]{6}" 
+                               required>
+                        <button type="button" class="toggle-pin" onclick="togglePin('login_pin')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="login_pin_error"></div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot PIN?</a>
+                </div>
+                
+                <button type="submit" class="btn-primary" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                
+                <div id="loginMessage" class="form-message"></div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" action="login.php" method="POST" class="auth-form" style="display:none;" onsubmit="return validateRegister()">
+                <input type="hidden" name="action" value="register">
+                
+                <div class="form-group">
+                    <label for="reg_name">
+                        <i class="fas fa-user"></i> Full Name
+                    </label>
+                    <input type="text" id="reg_name" name="name" 
+                           placeholder="Your full name" 
+                           required>
+                    <div class="error-message" id="reg_name_error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg_phone">
+                        <i class="fas fa-phone"></i> Phone Number
+                    </label>
+                    <input type="tel" id="reg_phone" name="phone" 
+                           placeholder="09xxxxxxxx" 
+                           pattern="09[0-9]{8}" 
+                           maxlength="10" 
+                           required>
+                    <div class="error-message" id="reg_phone_error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg_pin">
+                        <i class="fas fa-lock"></i> Create PIN
+                    </label>
+                    <div class="pin-input-group">
+                        <input type="password" id="reg_pin" name="pin" 
+                               placeholder="6-digit PIN" 
+                               maxlength="6" 
+                               pattern="[0-9]{6}" 
+                               required>
+                        <button type="button" class="toggle-pin" onclick="togglePin('reg_pin')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="reg_pin_error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg_confirm_pin">
+                        <i class="fas fa-check-circle"></i> Confirm PIN
+                    </label>
+                    <div class="pin-input-group">
+                        <input type="password" id="reg_confirm_pin" name="confirm_pin" 
+                               placeholder="Confirm your PIN" 
+                               maxlength="6" 
+                               pattern="[0-9]{6}" 
+                               required>
+                        <button type="button" class="toggle-pin" onclick="togglePin('reg_confirm_pin')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="error-message" id="reg_confirm_pin_error"></div>
+                </div>
+                
+                <button type="submit" class="btn-primary" id="registerBtn">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                
+                <div id="registerMessage" class="form-message"></div>
+            </form>
+            
+            <div class="auth-features">
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fast</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Bonuses</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/validation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+    </html>
