@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Telebirr Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.png" alt="Telebirr" class="sidebar-logo" onerror="this.style.display='none'">
+                <h3>Telebirr Pro</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="bonus.html">
+                    <i class="fas fa-gift"></i>
+                    <span>Bonuses</span>
+                </a>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="login.php?logout=1">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="sidebar-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="balance-badge">
+                        <i class="fas fa-wallet"></i>
+                        <span id="userBalance">ETB 1,250.00</span>
+                    </div>
+                    <div class="user-avatar" onclick="window.location.href='profile.html'">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <div class="action-card" onclick="window.location.href='bonus.html'">
+                    <i class="fas fa-gift"></i>
+                    <span>Claim Bonus</span>
+                </div>
+                <div class="action-card" onclick="window.location.href='profile.html'">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+                <div class="action-card" onclick="showNotification('Coming soon!')">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Send Money</span>
+                </div>
+                <div class="action-card" onclick="showNotification('Coming soon!')">
+                    <i class="fas fa-history"></i>
+                    <span>History</span>
+                </div>
+            </section>
+
+            <!-- Balance Cards -->
+            <section class="balance-cards">
+                <div class="balance-card primary">
+                    <div class="balance-info">
+                        <span class="balance-label">Available Balance</span>
+                        <span class="balance-amount" id="mainBalance">ETB 1,250.00</span>
+                    </div>
+                    <i class="fas fa-wallet balance-icon"></i>
+                </div>
+                <div class="balance-card secondary">
+                    <div class="balance-info">
+                        <span class="balance-label">Welcome Bonus</span>
+                        <span class="balance-amount">ETB 100</span>
+                    </div>
+                    <i class="fas fa-gift balance-icon"></i>
+                </div>
+            </section>
+
+            <!-- Active Bonuses -->
+            <section class="bonuses-section">
+                <div class="section-header">
+                    <h2>🎁 Available Bonuses</h2>
+                    <a href="bonus.html" class="view-all">View All</a>
+                </div>
+                <div class="bonuses-grid" id="activeBonuses">
+                    <!-- Loaded from API -->
+                </div>
+            </section>
+
+            <!-- Recent Transactions -->
+            <section class="transactions-section">
+                <div class="section-header">
+                    <h2>Recent Transactions</h2>
+                </div>
+                <div class="transactions-list" id="recentTransactions">
+                    <!-- Loaded from API -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notificationMessage"></span>
+        <button onclick="closeNotification()"><i class="fas fa-times"></i></button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
